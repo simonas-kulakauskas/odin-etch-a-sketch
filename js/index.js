@@ -13,3 +13,18 @@ for (let i = 0; i < 16; i++) {
     containerDiv.appendChild(rowDiv);
 }
 
+
+const changeDivColor = (selection) => {
+    //let selectedDiv = document.getSelection(selection);
+    let selectedDiv = selection["target"];
+    selectedDiv.style.cssText = "background-color: red;"
+}
+
+const colDivs = document.getElementsByClassName("col")
+
+
+for (let i = 0; i < colDivs.length; i++) {
+    colDivs[i].addEventListener("click", changeDivColor);
+}
+// Selection { anchorNode: div.col, anchorOffset: 0, focusNode: div.col, focusOffset: 0, isCollapsed: true, rangeCount: 1, type: "Caret", direction: "forward", caretBidiLevel: 0 }
+
