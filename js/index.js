@@ -15,15 +15,14 @@ for (let i = 0; i < squaresPerSide; i++) {
 }
 
 
-const changeDivColor = (selection) => {
+const changeDivColor = (selection) => { // Fires when selection is clicked
     //let selectedDiv = document.getSelection(selection);
     let selectedDiv = selection["target"];
     selectedDiv.style.cssText = "background-color: red;"
 }
 
+
 const colDivs = document.getElementsByClassName("col")
-
-
 for (let i = 0; i < colDivs.length; i++) {
     colDivs[i].addEventListener("click", changeDivColor);
 }
