@@ -1,0 +1,24 @@
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1%;
+}
+
+.col,
+.row {
+    background-color: blue;
+    padding: 1.55vw;
+    border: 1px solid red;
+}
+
+.row {
+    padding: 0;
+}
