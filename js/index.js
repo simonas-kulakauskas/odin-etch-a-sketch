@@ -1,5 +1,4 @@
-// Function to create amount of boxes in container based on user input
-
+// Box Creation
 const createBoxes = (squaresPerSide = 16) => {
     const container = document.querySelector("#container");
     for (let i = 0; i < squaresPerSide; i++) {
@@ -15,14 +14,11 @@ const createBoxes = (squaresPerSide = 16) => {
     attachBoxListeners();
 }
 
-// Function to change color of box that's passed to it.
-
+// Box colouring functions
 const changeBoxColor = (selection) => {
     selection = selection["target"];
     selection.style.cssText = "background-color: black;"
 }
-
-// Function to attach listeners to each box
 
 const attachBoxListeners = () => {
     const boxes = document.getElementsByClassName("box");
@@ -31,8 +27,7 @@ const attachBoxListeners = () => {
     }
 }
 
-// Function to remove listeners from each box
-
+// Cleaning Functions
 const removeBoxListeners = () => {
     const boxes = document.getElementsByClassName("box");
     for (let i = 0; i < boxes.length; i++) {
@@ -40,13 +35,12 @@ const removeBoxListeners = () => {
     }
 }
 
-// Function to clean up container div
 const cleanContainerDiv = () => {
     const container = document.querySelector("#container");
     container.innerHTML = "";
 }
 
-// Function to prompt (& alert user) for squaresPerSide and make sure its a number
+// User Prompt Functions
 const askForSquaresPerSide = () => {
     // Clean up current session if first run
     if (firstRun === false) {
@@ -54,7 +48,6 @@ const askForSquaresPerSide = () => {
         cleanContainerDiv();
     }
 
-    // Prompt user and initiate if valid
     let userSquaresPerSide = prompt("Enter an amount of Squares (Range 0-100)");
     if (userSquaresPerSide > 100 || userSquaresPerSide < 0) {
         alert("Out of bounds, pick between 0-100");
@@ -71,6 +64,7 @@ const askForSquaresPerSide = () => {
     
 }
 
+// Allow button to be pressed and state that program hasn't been run yet to prevent unneccesary cleaning
 let firstRun = true;
 const button = document.getElementById("squareSelectionButton");
 button.addEventListener("click", askForSquaresPerSide);
