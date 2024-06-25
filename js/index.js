@@ -1,5 +1,3 @@
-let firstRun = true;
-
 // Function to create amount of boxes in container based on user input
 
 const createBoxes = (squaresPerSide = 16) => {
@@ -73,6 +71,6 @@ const askForSquaresPerSide = () => {
     
 }
 
-
+let firstRun = true;
 const button = document.getElementById("squareSelectionButton");
 button.addEventListener("click", askForSquaresPerSide);

@@ -3,6 +3,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: lightgreen;
 }
 
 #settingsContainer {
@@ -10,7 +11,9 @@ body {
 }
 
 #container {
-    border: 1px solid black;
+    background-color: white;
+    border: 5px solid black;
+    border-radius: 5px;
     width: 1000px;
     height: 1000px;
     display: flex;
@@ -21,9 +24,10 @@ body {
     flex-direction: column;
 }
 
-.box {
+/* Remove from comment if you need gridlines*/
+/* .box {
     border: 1px solid red;
-} 
+}  */
 
 .box, .col {
     flex-grow: 1;
