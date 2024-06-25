@@ -1,3 +1,5 @@
+let firstRun = true;
+
 // Function to create amount of boxes in container based on user input
 
 const createBoxes = (squaresPerSide = 16) => {
@@ -12,6 +14,7 @@ const createBoxes = (squaresPerSide = 16) => {
         }
         container.appendChild(div);
     }
+    attachBoxListeners();
 }
 
 // Function to change color of box that's passed to it.
@@ -44,3 +47,32 @@ const cleanContainerDiv = () => {
     const container = document.querySelector("#container");
     container.innerHTML = "";
 }
+
+// Function to prompt (& alert user) for squaresPerSide and make sure its a number
+const askForSquaresPerSide = () => {
+    // Clean up current session if first run
+    if (firstRun === false) {
+        removeBoxListeners();
+        cleanContainerDiv();
+    }
+
+    // Prompt user and initiate if valid
+    let userSquaresPerSide = prompt("Enter an amount of Squares (Range 0-100)");
+    if (userSquaresPerSide > 100 || userSquaresPerSide < 0) {
+        alert("Out of bounds, pick between 0-100");
+        askForSquaresPerSide();
+    }
+    else if (userSquaresPerSide % 1 != 0) {
+        alert("Out of bounds, only whole numbers accepted")
+        askForSquaresPerSide();
+    }
+    else {
+        firstRun = false;
+        createBoxes(userSquaresPerSide);
+    }
+    
+}
+
+
+const button = document.getElementById("squareSelectionButton");
+button.addEventListener("click", askForSquaresPerSide);
